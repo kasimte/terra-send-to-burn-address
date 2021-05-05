@@ -1,0 +1,1 @@
+0ed0dffe043dec316693f7e3262410caa679c59444903a42de2fe8eacdb84f85  send_to_burn_address.wasm
