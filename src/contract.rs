@@ -81,3 +81,20 @@ pub fn query<S: Storage, A: Api, Q: Querier>(
 ) -> StdResult<Binary> {
     Ok(Binary::default())
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use cosmwasm_std::testing::{mock_dependencies, mock_env};
+    use cosmwasm_std::{coins};
+
+    #[test]
+    fn proper_initialization() {
+        let mut deps = mock_dependencies(20, &[]);
+        let msg = InitMsg {};
+        let env = mock_env("creator", &coins(1000, "earth"));
+        // we can just call .unwrap() to assert this was a success
+        let res = init(&mut deps, env, msg).unwrap();
+        assert_eq!(0, res.messages.len());
+    }
+}
